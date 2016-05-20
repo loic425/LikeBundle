@@ -6,7 +6,7 @@
  * Time: 11:54
  */
 
-namespace Loic425\Bundle\LikeBundle\Updater;
+namespace Loic425\Sylius\Bundle\LikeBundle\Updater;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Component\Like\Model\DislikableInterface;
 use Sylius\Component\Like\Model\LikableInterface;

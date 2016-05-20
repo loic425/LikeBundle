@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Loic425\Bundle\LikeBundle\EventListener;
+namespace Loic425\Sylius\Bundle\LikeBundle\EventListener;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;

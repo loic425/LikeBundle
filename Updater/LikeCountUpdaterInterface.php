@@ -6,7 +6,7 @@
  * Time: 11:57
  */
 
-namespace Loic425\Bundle\LikeBundle\Updater;
+namespace Loic425\Sylius\Bundle\LikeBundle\Updater;
 
 use Sylius\Component\Like\Model\LikableInterface;
 

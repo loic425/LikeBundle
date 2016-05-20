@@ -6,9 +6,9 @@
  * Time: 16:18
  */
 
-namespace Loic425\Bundle\LikeBundle\EventListener;
+namespace Loic425\Sylius\Bundle\LikeBundle\EventListener;
 
-use Loic425\Bundle\LikeBundle\Updater\LikeCountUpdaterInterface;
+use Loic425\Sylius\Bundle\LikeBundle\Updater\LikeCountUpdaterInterface;
 use Sylius\Component\Like\Model\LikeInterface;
 use Sylius\Component\Resource\Exception\UnexpectedTypeException;
 use Symfony\Component\EventDispatcher\GenericEvent;

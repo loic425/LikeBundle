@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Loic425\Bundle\LikeBundle;
+namespace Loic425\Sylius\Bundle\LikeBundle;
 
 use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
@@ -17,7 +17,7 @@ use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 /**
  * @author Loïc Frémont <loic@mobizel.com>
  */
-class Loic425LikeBundle extends AbstractResourceBundle
+class SyliusLikeBundle extends AbstractResourceBundle
 {
     /**
      * {@inheritdoc}

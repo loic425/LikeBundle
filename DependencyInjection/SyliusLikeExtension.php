@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Loic425\Bundle\LikeBundle\DependencyInjection;
+namespace Loic425\Sylius\Bundle\LikeBundle\DependencyInjection;
 
 use Sylius\Bundle\ResourceBundle\DependencyInjection\Extension\AbstractResourceExtension;
 use Symfony\Component\Config\FileLocator;
@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 /**
  * @author Loïc Frémont <loic@mobizel.com>
  */
-class Loic425LikeExtension extends AbstractResourceExtension
+class SyliusLikeExtension extends AbstractResourceExtension
 {
     /**
      * @var array

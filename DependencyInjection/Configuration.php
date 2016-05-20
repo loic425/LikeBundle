@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Loic425\Bundle\LikeBundle\DependencyInjection;
+namespace Loic425\Sylius\Bundle\LikeBundle\DependencyInjection;
 
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;

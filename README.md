@@ -20,7 +20,7 @@ component.
   {
     $bundles = array(
       // ...
-      new \Loic425\Bundle\LikeBundle\Loic425LikeBundle(),
+      new \Loic425\Sylius\Bundle\LikeBundle\Loic425LikeBundle(),
       // ...
     );
   }
