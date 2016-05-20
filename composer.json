@@ -1,5 +1,5 @@
 {
-  "name": "loic425/like-bundle",
+  "name": "loic425/sylius-like-bundle",
   "description": "Like bundle for Symfony2 projects.",
   "type": "symfony-bundle",
   "license": "MIT",

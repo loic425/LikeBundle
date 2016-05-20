@@ -1,4 +1,4 @@
-# LikeBundle
+# SyliusLikeBundle
 
 [**Symfony2**](http://symfony.com) integration of loic425 Like processing
 component.
@@ -10,7 +10,7 @@ component.
   1. require the bundle with Composer:
 
   ```bash
-  $ composer require loic425/LikeBundle
+  $ composer require loic425/sylius-like-bundle
   ```
   
   2. enable the bundle in `app/AppKernel.php`:
@@ -20,7 +20,7 @@ component.
   {
     $bundles = array(
       // ...
-      new \Loic425\Sylius\Bundle\LikeBundle\Loic425LikeBundle(),
+      new \Loic425\Bundle\LikeBundle\SyliusLikeBundle(),
       // ...
     );
   }
