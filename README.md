@@ -1,7 +1,7 @@
-# SyliusLikeBundle
+# LikeBundle
 
-This bundle extends the Sylius e-commerce platform with Like resource, which can be used to
-like or dislike any resource.
+[**Symfony2**](http://symfony.com) integration of loic425 Like processing
+component.
 
 ---
 
@@ -10,7 +10,20 @@ like or dislike any resource.
   1. require the bundle with Composer:
 
   ```bash
-  $ composer require loic425/SyliusLikeBundle
+  $ composer require loic425/LikeBundle
+  ```
+  
+  2. enable the bundle in `app/AppKernel.php`:
+
+  ```php
+  public function registerBundles()
+  {
+    $bundles = array(
+      // ...
+      new \Loic425\Bundle\LikeBundle\Loic425LikeBundle(),
+      // ...
+    );
+  }
   ```
 
 ## License

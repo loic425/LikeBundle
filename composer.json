@@ -1,0 +1,29 @@
+{
+  "name": "loic425/like-bundle",
+  "description": "Like bundle for Symfony2 projects.",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "keywords": [
+    "loic425",
+    "symfony",
+    "sylius",
+    "like",
+    "vote"
+  ],
+  "authors": [
+    {
+      "name": "Loïc Frémont",
+      "email": "loic@mobizel.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "Loic425\\Bundle\\LikeBundle\\": "" }
+  },
+  "require": {
+    "sylius/resource-bundle": "^0.17",
+    "symfony/framework-bundle": "^2.7.7"
+  },
+  "require-dev": {
+
+  }
+}
