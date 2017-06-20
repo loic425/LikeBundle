@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
+ * This file is part of the Like package.
  *
- * (c) Paweł Jędrzejewski
+ * (c) Loïc Frémont
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Loic425\Sylius\Bundle\LikeBundle\DependencyInjection;
+namespace Loic425\Bundle\LikeBundle\DependencyInjection;
 
 use Loic425\Component\Like\Model\LikeInterface;
 use Loic425\Component\Like\Model\LikerInterface;
-use Loic425\Sylius\Bundle\LikeBundle\Form\Type\LikeType;
+use Loic425\Bundle\LikeBundle\Form\Type\LikeType;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Sylius\Component\Resource\Factory\Factory;
@@ -37,7 +37,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sylius_like');
+        $rootNode = $treeBuilder->root('loic425_like');
 
         $rootNode
             ->addDefaultsIfNotSet()

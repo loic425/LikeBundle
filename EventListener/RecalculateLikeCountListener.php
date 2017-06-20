@@ -1,14 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: loic
- * Date: 17/05/2016
- * Time: 16:18
+
+/*
+ * This file is part of the Like package.
+ *
+ * (c) Loïc Frémont
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-namespace Loic425\Sylius\Bundle\LikeBundle\EventListener;
+namespace Loic425\Bundle\LikeBundle\EventListener;
 
-use Loic425\Sylius\Bundle\LikeBundle\Updater\LikeCountUpdaterInterface;
+use Loic425\Bundle\LikeBundle\Updater\LikeCountUpdaterInterface;
 use Loic425\Component\Like\Model\LikeInterface;
 use Sylius\Component\Resource\Exception\UnexpectedTypeException;
 use Symfony\Component\EventDispatcher\GenericEvent;

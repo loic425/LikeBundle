@@ -1,5 +1,5 @@
 {
-  "name": "loic425/sylius-like-bundle",
+  "name": "loic425/like-bundle",
   "description": "Like bundle for Symfony3 projects.",
   "type": "symfony-bundle",
   "license": "MIT",
@@ -12,7 +12,7 @@
   "authors": [
     {
       "name": "Loïc Frémont",
-      "email": "loic@mobizel.com"
+      "email": "lc.fremont@gmail.com"
     }
   ],
   "autoload": {
