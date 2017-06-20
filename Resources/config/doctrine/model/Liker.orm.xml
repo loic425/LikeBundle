@@ -13,7 +13,7 @@
 
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
 
-    <mapped-superclass name="Sylius\Component\Like\Model\Liker" table="sylius_liker">
+    <mapped-superclass name="Loic425\Component\Like\Model\Liker" table="sylius_liker">
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
         </id>

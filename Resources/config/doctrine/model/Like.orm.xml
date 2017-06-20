@@ -14,7 +14,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
 
-    <mapped-superclass name="Sylius\Component\Like\Model\Like" table="sylius_like">
+    <mapped-superclass name="Loic425\Component\Like\Model\Like" table="sylius_like">
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
         </id>

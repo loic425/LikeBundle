@@ -1,17 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: loic
- * Date: 18/05/2016
- * Time: 11:54
+
+/*
+ * This file is part of the Like package.
+ *
+ * (c) Loïc Frémont
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Loic425\Sylius\Bundle\LikeBundle\Updater;
-use Doctrine\Common\Persistence\ObjectManager;
-use Sylius\Component\Like\Model\DislikableInterface;
-use Sylius\Component\Like\Model\LikableInterface;
-use Sylius\Component\Review\Calculator\LikeCountCalculatorInterface;
 
+use Doctrine\Common\Persistence\ObjectManager;
+use Loic425\Component\Like\Model\DislikableInterface;
+use Loic425\Component\Like\Model\LikableInterface;
+use Loic425\Component\Like\Calculator\LikeCountCalculatorInterface;
 
 /**
  * @author Loïc Frémont <loic@mobizel.com>

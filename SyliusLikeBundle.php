@@ -22,7 +22,7 @@ class SyliusLikeBundle extends AbstractResourceBundle
     /**
      * {@inheritdoc}
      */
-    public static function getSupportedDrivers()
+    public function getSupportedDrivers()
     {
         return [
             SyliusResourceBundle::DRIVER_DOCTRINE_ORM,
@@ -34,6 +34,6 @@ class SyliusLikeBundle extends AbstractResourceBundle
      */
     protected function getModelNamespace()
     {
-        return 'Sylius\Component\Like\Model';
+        return 'Loic425\Component\Like\Model';
     }
 }

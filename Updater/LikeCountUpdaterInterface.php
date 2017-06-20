@@ -8,7 +8,7 @@
 
 namespace Loic425\Sylius\Bundle\LikeBundle\Updater;
 
-use Sylius\Component\Like\Model\LikableInterface;
+use Loic425\Component\Like\Model\LikableInterface;
 
 /**
  * @author Loïc Frémont <loic@mobizel.com>
