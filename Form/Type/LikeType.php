@@ -6,7 +6,7 @@
  * Time: 13:05
  */
 
-namespace Loic425\Sylius\Bundle\LikeBundle\Form\Type;
+namespace Loic425\Bundle\LikeBundle\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\FormBuilderInterface;

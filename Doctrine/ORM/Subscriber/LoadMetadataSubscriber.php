@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
+ * This file is part of the Like package.
  *
- * (c) Paweł Jędrzejewski
+ * (c) Loïc Frémont
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Loic425\Sylius\Bundle\LikeBundle\EventListener;
+namespace Loic425\Bundle\LikeBundle\Doctrine\ORM\Subscriber;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;

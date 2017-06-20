@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Loic425\Sylius\Bundle\LikeBundle\Updater;
+namespace Loic425\Bundle\LikeBundle\Updater;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Loic425\Component\Like\Model\DislikableInterface;
