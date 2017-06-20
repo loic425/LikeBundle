@@ -1,0 +1,30 @@
+{
+  "name": "loic425/sylius-like-bundle",
+  "description": "Like bundle for Symfony3 projects.",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "keywords": [
+    "loic425",
+    "symfony",
+    "like",
+    "vote"
+  ],
+  "authors": [
+    {
+      "name": "Loïc Frémont",
+      "email": "loic@mobizel.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "Loic425\\Bundle\\LikeBundle\\": "" }
+  },
+  "require": {
+    "sylius/resource-bundle": "^1.0",
+    "symfony/framework-bundle": "^3.2"
+  },
+  "require-dev": {
+
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

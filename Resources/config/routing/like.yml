@@ -1,0 +1,22 @@
+sylius_like_create:
+    path: /new
+    methods: [POST]
+    defaults:
+        _controller: sylius.controller.customer:createAction
+        _format: json
+
+sylius_like_update:
+    path: /profile/edit
+    methods: [GET, PATCH, PUT]
+    defaults:
+        _controller: sylius.controller.customer:updateProfileAction
+        _sylius:
+            form: sylius_customer_profile
+            redirect: sylius_account_profile_show
+
+sylius_account_change_password:
+    path: /change-password
+    methods: [GET, POST]
+    defaults:
+        _controller: sylius.controller.user:changePasswordAction
+        _format: json

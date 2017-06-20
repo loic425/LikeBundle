@@ -1,0 +1,3 @@
+sylius_like:
+    resource: @SyliusLikeBundle/Resources/config/routing/like.yml
+    prefix: /like
