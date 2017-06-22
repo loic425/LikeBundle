@@ -11,10 +11,16 @@
 
 namespace Loic425\Bundle\LikeBundle\DependencyInjection;
 
+use Loic425\Bundle\LikeBundle\EventListener\RecalculateLikeCountListener;
+use Loic425\Bundle\LikeBundle\Form\Type\LikeType;
+use Loic425\Bundle\LikeBundle\Updater\LikeCountUpdater;
 use Sylius\Bundle\ResourceBundle\DependencyInjection\Extension\AbstractResourceExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Parameter;
+use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * @author Loïc Frémont <loic@mobizel.com>
@@ -27,9 +33,9 @@ class Loic425LikeExtension extends AbstractResourceExtension
     public function load(array $config, ContainerBuilder $container)
     {
         $config = $this->processConfiguration($this->getConfiguration([], $container), $config);
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
-        $this->registerResources('sylius', $config['driver'], $this->resolveResources($config['resources'], $container), $container);
+        $this->registerResources('loic425', $config['driver'], $this->resolveResources($config['resources'], $container), $container);
 
         $loader->load('services.xml');
 
@@ -41,15 +47,15 @@ class Loic425LikeExtension extends AbstractResourceExtension
      */
     private function resolveResources(array $resources, ContainerBuilder $container)
     {
-        $container->setParameter('sylius.like.subjects', $resources);
+        $container->setParameter('loic425.like.subjects', $resources);
 
-        //$this->createLikeListeners(array_keys($resources), $container);
+        $this->createLikeListeners(array_keys($resources), $container);
 
         $resolvedResources = [];
         foreach ($resources as $subjectName => $subjectConfig) {
             foreach ($subjectConfig as $resourceName => $resourceConfig) {
                 if (is_array($resourceConfig)) {
-                    $resolvedResources[$subjectName.'_'.$resourceName] = $resourceConfig;
+                    $resolvedResources[$subjectName . '_' . $resourceName] = $resourceConfig;
                 }
             }
         }
@@ -63,26 +69,38 @@ class Loic425LikeExtension extends AbstractResourceExtension
      */
     private function createLikeListeners(array $reviewSubjects, ContainerBuilder $container)
     {
-        foreach ($reviewSubjects as $reviewSubject) {
-            $reviewChangeListener = new Definition(ReviewChangeListener::class, [
-                new Reference(sprintf('sylius.%s_review.average_rating_updater', $reviewSubject)),
+        foreach ($reviewSubjects as $likeSubject) {
+            $likeChangeListener = new Definition(RecalculateLikeCountListener::class, [
+                new Reference(sprintf('loic425.%s_like.like_count_updater', $likeSubject)),
             ]);
 
-            $reviewChangeListener->addTag('kernel.event_listener', [
-                'event' => sprintf('sylius.%s_review.post_update', $reviewSubject),
-                'method' => 'recalculateSubjectRating',
+            // recalculate like count on post update
+            $likeChangeListener->addTag('kernel.event_listener', [
+                'event' => sprintf('loic425.%s_like.post_update', $likeSubject),
+                'method' => 'recalculateLikeCount',
             ]);
-            $reviewChangeListener->addTag('kernel.event_listener', [
-                'event' => sprintf('sylius.%s_review.post_delete', $reviewSubject),
-                'method' => 'recalculateSubjectRating',
+
+            // recalculate like count on post delete
+            $likeChangeListener->addTag('kernel.event_listener', [
+                'event' => sprintf('loic425.%s_like.post_delete', $likeSubject),
+                'method' => 'recalculateLikeCount',
             ]);
+
+            // Defines validation groups of the form type
+            $container->setParameter(sprintf('loic425.form.type.%s_like.validation_groups', $likeSubject), ['loic425']);
+
+            // Defines form type's service
+            $container->setDefinition(sprintf('loic425.form.type.%s_like', $likeSubject), new Definition(LikeType::class, [
+                new Parameter(sprintf('loic425.model.%s_like.class', $likeSubject)),
+                new Parameter(sprintf('loic425.form.type.%s_like.validation_groups', $likeSubject)),
+            ]))->addTag('form.type');
 
             $container->addDefinitions([
-                sprintf('sylius.%s_review.average_rating_updater', $reviewSubject) => new Definition(AverageRatingUpdater::class, [
-                    new Reference('sylius.average_rating_calculator'),
-                    new Reference(sprintf('sylius.manager.%s_review', $reviewSubject)),
+                sprintf('loic425.%s_like.like_count_updater', $likeSubject) => new Definition(LikeCountUpdater::class, [
+                    new Reference('loic425.like_count_calculator'),
+                    new Reference(sprintf('loic425.manager.%s_like', $likeSubject)),
                 ]),
-                sprintf('sylius.listener.%s_review_change', $reviewSubject) => $reviewChangeListener,
+                sprintf('loic425.listener.%s_like_change', $likeSubject) => $likeChangeListener
             ]);
         }
     }

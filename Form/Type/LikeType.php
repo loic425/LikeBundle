@@ -1,14 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: loic
- * Date: 17/05/2016
- * Time: 13:05
+
+/*
+ * This file is part of the Like package.
+ *
+ * (c) Loïc Frémont
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Loic425\Bundle\LikeBundle\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -17,39 +21,12 @@ use Symfony\Component\Form\FormBuilderInterface;
 class LikeType extends AbstractResourceType
 {
     /**
-     * @var string
-     */
-    protected $subject;
-
-    /**
-     * @param string $dataClass
-     * @param array  $validationGroups
-     * @param string $subject
-     */
-    public function __construct($dataClass, array $validationGroups = [], $subject)
-    {
-        parent::__construct($dataClass, $validationGroups);
-
-        $this->subject = $subject;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('authorLike', null, [
-                'label' => 'sylius.form.like.author_like',
-            ])
+            ->add('like', CheckboxType::class)
         ;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return sprintf('sylius_%s_like', $this->subject);
     }
 }
